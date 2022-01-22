@@ -27,13 +27,13 @@ export default function SinglePost({
   return (
     <Layout>
       <div key={id} className={style.singlePost}>
-        <div className={style.metadata}>
+        <div className={style.breadcrumb}>
           <span>
             <Link to="/blog">
               <ArrowBackIos />
             </Link>
           </span>
-          <div className={style.metadataInfo}>
+          <div className={style.breadcrumbInfo}>
             <Breadcrumbs aria-label="breadcrumb">
               <Link to="/">Home</Link>
               <Link to="/blog">Blog</Link>
@@ -49,12 +49,12 @@ export default function SinglePost({
         <div>
           <div className={style.metadata}>
             <span>
-              <em>Author: Prosper Atu</em>
+              <em>{category}</em>
             </span>
             <div className={style.metadataInfo}>
               <span>{timeSince(new Date(createdAt))} ago</span>
               <Tooltip title="Bookmark" className={style.bookmarkIcon}>
-                <IconButton aria-label="delete">
+                <IconButton aria-label="delete" className={style.bookIcon}>
                   <Bookmark />
                 </IconButton>
               </Tooltip>
@@ -73,7 +73,11 @@ export default function SinglePost({
             <span>
               Tags: &nbsp;
               {tags.map(d => (
-                <Chip key={d.name} label={d.name} className={style.chipElements} />
+                <Chip
+                  key={d.name}
+                  label={d.name}
+                  className={style.chipElements}
+                />
               ))}
             </span>
           </div>

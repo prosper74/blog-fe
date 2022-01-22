@@ -47,28 +47,28 @@ function Navbar() {
           <div className="menu" ref={setMenu}>
             <ul className="menu-inner" ref={setMenuLink}>
               <li className="menu-item">
-                <Link to="/" className="menu-link">
-                  Home
+                <Link to="/blog" className="menu-link">
+                  All Stories
                 </Link>
               </li>
               <li className="menu-item">
-                <Link to="/#about" className="menu-link">
-                  Profile
+                <Link to="/blog/journey" className="menu-link">
+                  Journey
                 </Link>
               </li>
               <li className="menu-item">
-                <Link to="/#projects" className="menu-link">
-                  Projects
+                <Link to="/blog/javascript" className="menu-link">
+                  JavaScript
                 </Link>
               </li>
               <li className="menu-item">
-                <Link to="/#blog" className="menu-link">
-                  Blog
+                <Link to="/blog/blockchain" className="menu-link">
+                  Blockchain
                 </Link>
               </li>
               <li className="menu-item">
-                <Link to="/#contact" className="menu-link">
-                  Contact
+                <Link to="/blog/tech" className="menu-link">
+                  Tech Stories
                 </Link>
               </li>
             </ul>

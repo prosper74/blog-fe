@@ -1,6 +1,6 @@
 @import "./global.css";
 
-.singlePost {
+.category {
   max-width: 83rem;
   width: 100%;
   height: auto;
@@ -15,12 +15,6 @@
   border-radius: 10px;
 }
 
-.metadata {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .breadcrumb {
   display: flex;
   justify-content: space-between;
@@ -28,16 +22,12 @@
   margin-bottom: .8rem;
 }
 
-.mainContent {
+.categoryDesc {
   margin-bottom: 1rem;
 }
 
-.mainContent > h1 {
+.categoryDesc > h1 {
   font-size: 2.5rem;
-}
-
-.chipElements {
-  margin: 0 .1rem 0 0;
 }
 
 @media screen and (max-width: 650px) {
@@ -53,25 +43,5 @@
   .breadcrumbInfo {
     display: flex;
     align-items: center;
-  }
-
-  .metadata {
-    align-items: flex-start;
-  }
-
-  .metadataInfo {
-    display: flex;
-  }
-
-  .metadataInfo > .bookIcon {
-    padding: 2px;
-  }
-
-  .bookmarkIcon {
-    align-self: flex-end;
-  }
-
-  .mainContent > h1 {
-    font-size: 1.5rem;
   }
 }

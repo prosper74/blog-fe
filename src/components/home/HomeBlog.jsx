@@ -59,11 +59,6 @@ function HomeBlog() {
               alt={d.frontmatter.title}
               className={style.postImage}
             />
-            {/* <img
-              src="https://www.bbvaapimarket.com/wp-content/uploads/2018/04/blogsapis.jpg"
-              alt=""
-              className={style.postImage}
-            /> */}
             <div className={style.postInformation}>
               <h3>{d.frontmatter.title}</h3>
               <p>{d.frontmatter.excerpt}</p>

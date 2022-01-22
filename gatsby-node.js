@@ -45,6 +45,22 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      tags: allStrapiTags {
+        edges {
+          node {
+            strapiId
+            name
+            description
+            thumbnail {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
+              }
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -54,6 +70,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const posts = result.data.posts.edges
   const categories = result.data.categories.edges
+  const tags = result.data.tags.edges
+
+  console.log(tags)
 
   posts.forEach(post => {
     createPage({

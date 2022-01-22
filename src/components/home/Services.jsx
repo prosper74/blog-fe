@@ -9,11 +9,13 @@ function Services() {
     query servicesQuery {
       allMarkdownRemark(
         filter: { frontmatter: { stack: { eq: "Services" } } }
+        sort: { fields: frontmatter___title, order: DESC }
       ) {
         nodes {
           frontmatter {
             title
             description
+            slug
           }
           id
         }
@@ -26,7 +28,15 @@ function Services() {
     <div className={style.services}>
       <div className={style.servicesContainer}>
         {servicesData.map(d => (
-          <Link to="/#" className={style.serviceContent} key={d.id}>
+          <Link
+            to={
+              d.frontmatter.slug === "portfolio"
+                ? "https://prosperatu.netlify.app"
+                : "/" + d.frontmatter.slug
+            }
+            className={style.serviceContent}
+            key={d.id}
+          >
             <UilAirplay className={style.serviceIcon} />
             <div>
               <h3>{d.frontmatter.title}</h3>

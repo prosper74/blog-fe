@@ -1,6 +1,6 @@
 ---
 stack: Services
-title: Graphics Designing
-description: Lorem ninja ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-slug: graphics-designing
+title: Who Am I?
+description: I am Prosper Atu, a Software Engineer specialized in designing and developing exceptional websites and web applications, with modern technologies...
+slug: portfolio
 ---

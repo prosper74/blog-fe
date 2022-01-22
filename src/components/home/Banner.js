@@ -6,9 +6,16 @@ export default function Banner() {
     <div className={style.heroImage} id="home">
       <img src="" alt="" />
       <div className={style.heroText}>
-        <h1>I am John Doe</h1>
-        <p>And I'm a Photographer</p>
-        <button>Hire me</button>
+        <h1>I am Prosper Atu</h1>
+        <p>And I'm a Web Developer</p>
+        <a
+          href="https://prosperatu.netlify.app"
+          target="_blank"
+          rel="noreferrer"
+          alt="my portfolio"
+        >
+          <button>About Me</button>
+        </a>
       </div>
     </div>
   )

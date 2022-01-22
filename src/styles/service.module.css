@@ -1,0 +1,69 @@
+a {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+.services {
+  max-width: 83rem;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.servicesContainer {  
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);  
+}
+
+.serviceIcon {
+  color: #6633FF;
+  width: 110px;
+  height: 110px;
+}
+
+.serviceContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  background-color: inherit;
+  padding: 1.5rem 1rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: 0.5s;
+}
+
+.serviceContent:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+.viewMore {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.viewMoreIcon {
+  margin-left: 0.2rem;
+}
+
+@media screen and (max-width: 970px) {
+  .servicesContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+}
+
+@media screen and (max-width: 640px) {
+  .serviceIcon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .servicesContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

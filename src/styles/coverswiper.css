@@ -1,0 +1,55 @@
+
+.swiper-container {
+    width: 100%;
+    padding: 50px 0;
+  }
+  
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 350px;
+    height: 400px;
+  }
+  
+  .swiper-slide > img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .swiper-pagination-button {
+	bottom: -5.5rem !important;
+}
+
+.swiper-pagination-bullet-active {
+	background-color: #6633FF !important;
+}
+
+.details {
+  padding: 1rem;
+}
+
+.details > button {
+  margin: 1rem 0;
+  padding: .4rem .8rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: .5s;
+}
+
+.details > button:hover {
+  background-color: #6633FF;
+  color: white;
+  border: none;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 650px) {
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+  }
+}

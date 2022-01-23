@@ -67,17 +67,21 @@ export default function SinglePost({
             </span>
             <br />
             <br />
-            Category: <Chip label={category} />
+            Category: &nbsp;
+            <Link to={"/blog/" + category.toLowerCase().replace(/ /g, "-")}>
+              <Chip label={category} />
+            </Link>
             <br />
             <br />
             <span>
               Tags: &nbsp;
               {tags.map(d => (
-                <Chip
+                <Link
                   key={d.name}
-                  label={d.name}
-                  className={style.chipElements}
-                />
+                  to={"/blog/" + d.name.toLowerCase().replace(/ /g, "-")}
+                >
+                  <Chip label={d.name} className={style.chipElements} />
+                </Link>
               ))}
             </span>
           </div>

@@ -4,6 +4,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/templates/SinglePost.js`)
   const categoryTemplate = path.resolve(`src/templates/category.js`)
+  const tagTemplate = path.resolve(`src/templates/tags.js`)
   const result = await graphql(`
     query MyPosts {
       posts: allStrapiPosts {
@@ -49,8 +50,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             strapiId
-            name
-            description
+            name            
             thumbnail {
               localFile {
                 childImageSharp {
@@ -71,8 +71,6 @@ exports.createPages = async ({ graphql, actions }) => {
   const posts = result.data.posts.edges
   const categories = result.data.categories.edges
   const tags = result.data.tags.edges
-
-  console.log(tags)
 
   posts.forEach(post => {
     createPage({
@@ -99,6 +97,18 @@ exports.createPages = async ({ graphql, actions }) => {
         description: category.node.description,
         id: category.node.strapiId,
         thumbnail: category.node.thumbnail,
+      },
+    })
+  })
+
+  tags.forEach(tag => {
+    createPage({
+      path: `/blog/${tag.node.name.toLowerCase().replace(/ /g, "-")}`,
+      component: tagTemplate,
+      context: {
+        name: tag.node.name,
+        id: tag.node.strapiId,
+        thumbnail: tag.node.thumbnail,
       },
     })
   })

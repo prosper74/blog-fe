@@ -8,7 +8,7 @@ import BlogCard from "../components/common/BlogCard"
 import * as style from "../styles/category.module.css"
 
 export default function Tag({
-  pageContext: { name, id, description, thumbnail },
+  pageContext: { name, id, thumbnail },
   data: {
     allStrapiPosts: { edges: posts },
   },
@@ -38,7 +38,6 @@ export default function Tag({
         <div>
           <div className={style.categoryDesc}>
             <h1>{name}</h1>
-            <p>{description}</p>
           </div>
         </div>
         <BlogCard blogData={posts} />
@@ -49,7 +48,7 @@ export default function Tag({
 
 export const query = graphql`
   query GetTagPosts($id: String!) {
-    allStrapiPosts(filter: { tag: { id: { eq: $id } } }) {
+    allStrapiPosts(filter: { tags: { elemMatch: { id: { eq: $id } } } }) {
       edges {
         node {
           strapiId

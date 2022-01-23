@@ -222,6 +222,7 @@
 
   .MuiChip-root {
     background-color: #6633FF !important;
+    cursor: pointer !important;
   }
 
   .MuiChip-label {

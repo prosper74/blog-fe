@@ -44,8 +44,8 @@ function HomeBlog() {
     <div className={style.blog} id="blog">
       <h2>Latest Stories</h2>
       <p className={style.subtitle}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex,
-        reprehenderit optio, explicabo harum fugiat
+        Read my latest posts from all categories. Hopefully, you'll get inspired
+        today... smiles
       </p>
       <div className={style.blogContainer}>
         {blogData.map(d => (

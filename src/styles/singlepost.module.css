@@ -40,6 +40,23 @@
   margin: 0 .1rem 0 0;
 }
 
+.post_inner p{
+  margin-bottom: 1.5rem;
+}
+
+.post_inner ul{
+  font-size: 1rem;
+}
+
+.post_inner ol{
+  font-size: 1rem;
+}
+
+.post_inner li{
+  margin: 1px 0 0 35px;
+  /* display: block; */
+}
+
 @media screen and (max-width: 650px) {
   .featuredImage {
     height: 200px;

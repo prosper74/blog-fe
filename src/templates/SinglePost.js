@@ -62,9 +62,9 @@ export default function SinglePost({
           </div>
           <div className={style.mainContent}>
             <h1>{title}</h1>
-            <span>
+            <div className={style.post_inner}>
               <MarkdownView markdown={body} />
-            </span>
+            </div>
             <br />
             <br />
             Category: &nbsp;

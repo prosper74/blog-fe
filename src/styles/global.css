@@ -35,8 +35,6 @@
     padding: 0;
     margin: 0;
     box-sizing: inherit;
-    list-style: none;
-    list-style-type: none;
     text-decoration: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -184,6 +182,10 @@
     text-transform: uppercase;
     text-rendering: optimizeLegibility;
     transition: all 0.35s ease-in-out;
+  }
+  .navbar ul,
+  .navbar ol {
+    list-style: none;
   }
   .navbar .menu-link.active, .navbar .menu-link:hover {
     border: none;

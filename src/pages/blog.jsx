@@ -17,7 +17,7 @@ export default function BlogPage({
 
 export const query = graphql`
   {
-    allStrapiPosts {
+    allStrapiPosts(sort: { fields: createdAt, order: DESC }) {
       edges {
         node {
           strapiId

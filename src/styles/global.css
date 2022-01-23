@@ -228,3 +228,18 @@
   .MuiChip-label {
     color: white;
   }
+
+  /* Scroll Bar styles */
+::-webkit-scrollbar {
+  width: 0.6rem;
+  background-color: #fde3ff;
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #6633FF;
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #1f007e;
+  cursor: pointer;
+}

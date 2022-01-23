@@ -30,8 +30,8 @@ function Footer() {
             <div>
               <b>Menu</b>
               <Link to="/#home">Home</Link>
-              <Link to="/#about">Profile</Link>
-              <Link to="/#projects">Projects</Link>
+              <Link to="https://prosperatu.netlify.app/">Portfolio</Link>
+              <Link to="/blog/journey">My Journey</Link>
               <Link to="/blog">Blog</Link>
               <Link to="/#contact">Contact</Link>
             </div>
@@ -47,8 +47,8 @@ function Footer() {
               >
                 Gasby JS
               </a>
-              <a href="https://swiperjs.com/" target="_blank" rel="noreferrer">
-                Swiper js
+              <a href="https://strapi.io/" target="_blank" rel="noreferrer">
+                Strapi
               </a>
             </div>
             <div className={style.socials}>

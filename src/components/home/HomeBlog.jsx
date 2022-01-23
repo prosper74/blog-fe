@@ -1,44 +1,34 @@
 import React from "react"
-import * as style from "../../styles/homeblog.module.css"
-import { UilExternalLinkAlt, UilCalender } from "@iconscout/react-unicons"
+import { UilExternalLinkAlt } from "@iconscout/react-unicons"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { timeSince } from "../dateFunction"
+import BlogCard from "../common/BlogCard"
+import * as style from "../../styles/homeblog.module.css"
 
 function HomeBlog() {
   // Graphql query to fetch the blog posts from the .md files
   const data = useStaticQuery(graphql`
     query HomeBlogQuery {
-      allMarkdownRemark(
-        filter: { frontmatter: { stack: { eq: "Blog" } } }
-        limit: 3
-        sort: { fields: frontmatter___date, order: DESC }
-      ) {
-        nodes {
-          frontmatter {
-            featuredImage {
-              childImageSharp {
-                gatsbyImageData(
-                  aspectRatio: 0.7
-                  width: 500
-                  blurredOptions: { width: 100 }
-                  placeholder: BLURRED
-                  transformOptions: { cropFocus: CENTER }
-                )
+      allStrapiPosts(limit: 6, sort: { fields: createdAt, order: DESC }) {
+        edges {
+          node {
+            strapiId
+            title
+            excerpt
+            createdAt
+            thumbnail {
+              localFile {
+                childImageSharp {
+                  gatsbyImageData
+                }
               }
             }
-            date
-            excerpt
-            slug
-            title
           }
-          id
         }
       }
     }
   `)
 
-  const blogData = data.allMarkdownRemark.nodes
+  const blogData = data.allStrapiPosts.edges
 
   return (
     <div className={style.blog} id="blog">
@@ -47,36 +37,7 @@ function HomeBlog() {
         Read my latest posts from all categories. Hopefully, you'll get inspired
         today... smiles
       </p>
-      <div className={style.blogContainer}>
-        {blogData.map(d => (
-          <Link
-            to={"/blog/" + d.frontmatter.slug}
-            key={d.id}
-            className={style.postContent}
-          >
-            <GatsbyImage
-              image={getImage(d.frontmatter.featuredImage)}
-              alt={d.frontmatter.title}
-              className={style.postImage}
-            />
-            <div className={style.postInformation}>
-              <h3>{d.frontmatter.title}</h3>
-              <p>{d.frontmatter.excerpt}</p>
-            </div>
-            <div className={style.postFooter}>
-              <div className={style.readMore}>
-                Read more
-                <UilExternalLinkAlt size="15" className={style.readMoreIcon} />
-              </div>
-              <div className={style.readMore}>
-                <UilCalender size="15" className={style.viewMoreIcon} />
-                &nbsp;
-                {timeSince(new Date(d.frontmatter.date))} ago
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+      <BlogCard blogData={blogData} />
       <Link to="/blog" className={style.viewMoreButton}>
         View more
         <UilExternalLinkAlt size="18" className={style.viewMoreIcon} />

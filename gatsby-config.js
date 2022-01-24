@@ -57,8 +57,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "Prosper.Atu",
-        short_name: "This is my personal blog",
+        name: "Prosper Atu",
+        short_name: "Prosper blog",
         description: "Join me as I walk through my tech journey",
         start_url: "/",
         background_color: "#F7F7F7",

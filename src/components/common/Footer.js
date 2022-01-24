@@ -29,30 +29,28 @@ function Footer() {
           <div>
             <div>
               <b>Menu</b>
-              <Link to="/#home">Home</Link>
-              <Link to="https://prosperatu.netlify.app/">Portfolio</Link>
-              <Link to="/blog/journey">My Journey</Link>
+              <Link to="/#home">Home |</Link>
+              <Link to="https://prosperatu.netlify.app/">Portfolio |</Link>
               <Link to="/blog">Blog</Link>
-              <Link to="/#contact">Contact</Link>
             </div>
             <div>
               <b>Built With</b>
               <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
-                React JS
+                React |
               </a>
               <a
                 href="https://www.gatsbyjs.com/"
                 target="_blank"
                 rel="noreferrer"
               >
-                Gasby JS
+                Gatsby |
               </a>
               <a href="https://strapi.io/" target="_blank" rel="noreferrer">
                 Strapi
               </a>
             </div>
             <div className={style.socials}>
-              <b>Check me out</b>
+              <b className={style.socialsB}>Check me out</b>
               <a
                 href="https://github.com/prosper74"
                 target="_blank"

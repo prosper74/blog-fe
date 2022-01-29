@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import MarkdownView from "react-showdown"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { motion } from "framer-motion"
 import {
   Bookmark,
   Facebook,
@@ -20,6 +21,41 @@ import {
 import { timeSince } from "../components/dateFunction"
 import Layout from "../components/common/Layout"
 import * as style from "../styles/singlepost.module.css"
+
+const containerVariants = {
+  hidden: {
+    x: "-100vw",
+  },
+  visible: {
+    x: 0,
+    transition: {
+      type: "spring",
+      delay: 0.3,
+      duration: 0.5,
+    },
+  },
+}
+
+const metaVariants = {
+  catHidden: { x: -400 },
+  dateHidden: { x: 400 },
+  visible: {
+    x: 0,
+    transition: { type: "spring", delay: 0.5, duration: 0.5 },
+  },
+}
+
+const contentVariants = {
+  hidden: { y: 150 },
+  titleVisible: {
+    y: 0,
+    transition: { type: "spring", delay: 0.6, duration: 0.6 },
+  },
+  bodyVisible: {
+    y: 0,
+    transition: { type: "spring", delay: 0.8, duration: 0.6 },
+  },
+}
 
 export default function SinglePost({
   pageContext: { title, body, id, thumbnail, tags, category, createdAt },
@@ -41,30 +77,56 @@ export default function SinglePost({
             </Breadcrumbs>
           </div>
         </div>
-        <GatsbyImage
-          image={getImage(thumbnail.localFile)}
-          alt={title}
-          className={style.featuredImage}
-        />
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <GatsbyImage
+            image={getImage(thumbnail.localFile)}
+            alt={title}
+            className={style.featuredImage}
+          />
+        </motion.div>
         <div>
           <div className={style.metadata}>
-            <span>
+            <motion.span
+              variants={metaVariants}
+              initial="catHidden"
+              animate="visible"
+            >
               <em>{category}</em>
-            </span>
-            <div className={style.metadataInfo}>
+            </motion.span>
+            <motion.div
+              variants={metaVariants}
+              initial="dateHidden"
+              animate="visible"
+              className={style.metadataInfo}
+            >
               <span>{timeSince(new Date(createdAt))} ago</span>
               <Tooltip title="Bookmark" className={style.bookmarkIcon}>
                 <IconButton aria-label="delete" className={style.bookIcon}>
                   <Bookmark />
                 </IconButton>
               </Tooltip>
-            </div>
+            </motion.div>
           </div>
           <div className={style.mainContent}>
-            <h1>{title}</h1>
-            <div className={style.post_inner}>
+            <motion.h1
+              variants={contentVariants}
+              initial="hidden"
+              animate="titleVisible"
+            >
+              {title}
+            </motion.h1>
+            <motion.div
+              variants={contentVariants}
+              initial="hidden"
+              animate="bodyVisible"
+              className={style.post_inner}
+            >
               <MarkdownView markdown={body} />
-            </div>
+            </motion.div>
             <br />
             <br />
             Category: &nbsp;

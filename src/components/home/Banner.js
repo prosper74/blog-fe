@@ -1,4 +1,5 @@
 import React from "react"
+import { motion } from "framer-motion"
 import * as style from "../../styles/home.module.css"
 
 export default function Banner() {
@@ -6,15 +7,25 @@ export default function Banner() {
     <div className={style.heroImage} id="home">
       <img src="" alt="" />
       <div className={style.heroText}>
-        <h1>I am Prosper Atu</h1>
-        <p>And I'm a Web Developer</p>
+        <motion.h1 initial={{ y: "100vh" }} animate={{ y: 0 }}>
+          I am Prosper Atu
+        </motion.h1>
+        <p>A Frontend Developer and Technical writer</p>
         <a
           href="https://prosperatu.netlify.app"
           target="_blank"
           rel="noreferrer"
           alt="my portfolio"
         >
-          <button>About Me</button>
+          <motion.button
+            whileHover={{
+              scale: 1.02,
+              textShadow: "0px 0px 8px rgb(255,255,255)",
+              boxShadow: "0px 0px 8px rgb(255,255,255)",
+            }}
+          >
+            About Me
+          </motion.button>
         </a>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React from "react"
 import { UilExternalLinkAlt } from "@iconscout/react-unicons"
 import { graphql, Link, useStaticQuery } from "gatsby"
+import { motion } from "framer-motion"
 import BlogCard from "../common/BlogCard"
 import * as style from "../../styles/homeblog.module.css"
 
@@ -38,10 +39,12 @@ function HomeBlog() {
         today... smiles
       </p>
       <BlogCard blogData={blogData} />
-      <Link to="/blog" className={style.viewMoreButton}>
-        View more
-        <UilExternalLinkAlt size="18" className={style.viewMoreIcon} />
-      </Link>
+      <motion.div whileHover={{ scale: 1.1 }}>
+        <Link to="/blog" className={style.viewMoreButton}>
+          View more
+          <UilExternalLinkAlt size="18" className={style.viewMoreIcon} />
+        </Link>
+      </motion.div>
     </div>
   )
 }

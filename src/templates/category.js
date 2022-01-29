@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { motion } from "framer-motion"
 import { ArrowBackIos } from "@material-ui/icons"
 import { Breadcrumbs, Typography } from "@material-ui/core"
 import Layout from "../components/common/Layout"
@@ -30,15 +31,26 @@ export default function Category({
             </Breadcrumbs>
           </div>
         </div>
-        <GatsbyImage
-          image={getImage(thumbnail.localFile)}
-          alt={name}
-          className={style.featuredImage}
-        />
+        <motion.div
+          initial={{ x: "-100vw" }}
+          animate={{ x: 0 }}
+          transition={{ type: "spring", delay: 0.3, duration: 0.5 }}
+        >
+          <GatsbyImage
+            image={getImage(thumbnail.localFile)}
+            alt={name}
+            className={style.featuredImage}
+          />
+        </motion.div>
+
         <div>
           <div className={style.categoryDesc}>
-            <h1>{name}</h1>
-            <p>{description}</p>
+            <motion.h1 initial={{ y: -500 }} animate={{ y: 0 }}>
+              {name}
+            </motion.h1>
+            <motion.p initial={{ y: 500 }} animate={{ y: 0 }}>
+              {description}
+            </motion.p>
           </div>
         </div>
         <BlogCard blogData={posts} />

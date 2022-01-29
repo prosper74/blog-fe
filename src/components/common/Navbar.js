@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import React, { useRef } from "react"
 import "../../styles/global.css"
+import Logo from "../../images/myLogo.svg"
 
 function Navbar() {
   const menuIcon = useRef(null)
@@ -30,7 +31,7 @@ function Navbar() {
         <section className="wrapper">
           <h1 className="brand">
             <Link to="/" className="brand-link">
-              Prosper
+              <img src={Logo} alt="My Logo" className="my-logo" />
             </Link>
           </h1>
           <button

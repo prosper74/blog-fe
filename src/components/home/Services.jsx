@@ -1,7 +1,8 @@
 import React from "react"
-import * as style from "../../styles/service.module.css"
 import { UilExternalLinkAlt, UilAirplay } from "@iconscout/react-unicons"
 import { graphql, Link, useStaticQuery } from "gatsby"
+import { motion } from "framer-motion"
+import * as style from "../../styles/service.module.css"
 
 function Services() {
   // Graphql query to fetch the services from the .md files
@@ -26,7 +27,11 @@ function Services() {
 
   return (
     <div className={style.services}>
-      <div className={style.servicesContainer}>
+      <motion.div
+        initial={{ y: "100vh" }}
+        animate={{ y: 0 }}
+        className={style.servicesContainer}
+      >
         {servicesData.map(d => (
           <Link
             to={
@@ -48,7 +53,7 @@ function Services() {
             </div>
           </Link>
         ))}
-      </div>
+      </motion.div>
     </div>
   )
 }

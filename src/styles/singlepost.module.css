@@ -5,7 +5,7 @@
   width: 100%;
   height: auto;
   margin: 5.5rem auto 0;
-  padding: 0 2rem;
+  padding: 0 12rem;
 }
 
 .featuredImage {
@@ -41,7 +41,7 @@
 }
 
 .post_inner p{
-  margin-bottom: 1.5rem;
+  margin: .9rem 0;
 }
 
 .post_inner ul{
@@ -54,10 +54,30 @@
 
 .post_inner li{
   margin: 1px 0 0 35px;
-  /* display: block; */
+}
+
+.post_inner pre{
+  margin: 2rem 0;
+  padding: 2rem;
+  background-color: #110046;
+  color: white;
+  border-radius: 12px;
+  white-space: pre-wrap;
+}
+
+.post_inner a{  
+  color: #6633FF;
 }
 
 @media screen and (max-width: 650px) {
+  .singlePost {    
+    padding: 0 1rem;
+  }
+
+  .post_inner pre{
+    padding: 2rem .5rem;
+  }
+
   .featuredImage {
     height: 200px;
     margin-bottom: 1rem;

@@ -46,13 +46,15 @@ const metaVariants = {
 }
 
 const contentVariants = {
-  hidden: { y: 150 },
+  hidden: { y: 150, opacity: 0 },
   titleVisible: {
     y: 0,
+    opacity: 1,
     transition: { type: "spring", delay: 0.6, duration: 0.6 },
   },
   bodyVisible: {
     y: 0,
+    opacity: 1,
     transition: { type: "spring", delay: 0.8, duration: 0.6 },
   },
 }
@@ -127,8 +129,6 @@ export default function SinglePost({
             >
               <MarkdownView markdown={body} />
             </motion.div>
-            <br />
-            <br />
             Category: &nbsp;
             <Link to={"/blog/" + category.toLowerCase().replace(/ /g, "-")}>
               <Chip label={category} />
@@ -147,7 +147,7 @@ export default function SinglePost({
               ))}
             </span>
           </div>
-          <div className="shareButtons">
+          <div>
             <b>Share to:</b>
             <Tooltip
               title="Share post to facebook"

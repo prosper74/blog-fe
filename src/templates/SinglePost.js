@@ -4,13 +4,16 @@ import MarkdownView from "react-showdown"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
 import {
-  Bookmark,
-  Facebook,
-  Twitter,
-  Instagram,
-  WhatsApp,
-  ArrowBackIos,
-} from "@material-ui/icons"
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+} from "react-share"
+import { Bookmark, ArrowBackIos } from "@material-ui/icons"
 import {
   Breadcrumbs,
   IconButton,
@@ -147,39 +150,63 @@ export default function SinglePost({
               ))}
             </span>
           </div>
-          <div>
+          <div className={style.shareSection}>
             <b>Share to:</b>
             <Tooltip
               title="Share post to facebook"
               className={style.bookmarkIcon}
             >
-              <IconButton aria-label="delete">
-                <Facebook />
-              </IconButton>
+              <FacebookShareButton
+                url={`https://prosper-blog.netlify.app/blog/${title
+                  .toLowerCase()
+                  .replace(/ /g, "-")}`}
+                quote={`ProsperBlog - ${title}`}
+                hashtag={"#" + category}
+              >
+                <FacebookIcon size={27} className={style.socialMediaButton} />
+              </FacebookShareButton>
             </Tooltip>
             <Tooltip
               title="Share post to Twitter"
               className={style.bookmarkIcon}
             >
-              <IconButton aria-label="delete">
-                <Twitter />
-              </IconButton>
+              <TwitterShareButton
+                url={`https://prosper-blog.netlify.app/blog/${title
+                  .toLowerCase()
+                  .replace(/ /g, "-")}`}
+                quote={`ProsperBlog - ${title}`}
+                hashtag={"#" + category}
+              >
+                <TwitterIcon size={27} className={style.socialMediaButton} />
+              </TwitterShareButton>
             </Tooltip>
             <Tooltip
               title="Share post to Whatsapp"
               className={style.bookmarkIcon}
             >
-              <IconButton aria-label="delete">
-                <WhatsApp />
-              </IconButton>
+              <LinkedinShareButton
+                url={`https://prosper-blog.netlify.app/blog/${title
+                  .toLowerCase()
+                  .replace(/ /g, "-")}`}
+                quote={`ProsperBlog - ${title}`}
+                hashtag={"#" + category}
+              >
+                <LinkedinIcon size={27} className={style.socialMediaButton} />
+              </LinkedinShareButton>
             </Tooltip>
             <Tooltip
               title="Share post to facebook"
               className={style.bookmarkIcon}
             >
-              <IconButton aria-label="delete">
-                <Instagram />
-              </IconButton>
+              <WhatsappShareButton
+                url={`https://prosper-blog.netlify.app/blog/${title
+                  .toLowerCase()
+                  .replace(/ /g, "-")}`}
+                quote={`ProsperBlog - ${title}`}
+                hashtag={"#" + category}
+              >
+                <WhatsappIcon size={27} className={style.socialMediaButton} />
+              </WhatsappShareButton>
             </Tooltip>
           </div>
         </div>

@@ -42,14 +42,15 @@
 
 .post_inner p{
   margin: .9rem 0;
+  font-size: 1.2rem;
 }
 
 .post_inner ul{
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .post_inner ol{
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .post_inner li{
@@ -67,6 +68,16 @@
 
 .post_inner a{  
   color: #6633FF;
+}
+
+.shareSection {
+  display: flex;
+  align-items: center;
+}
+
+.socialMediaButton {
+  border-radius: 50%;
+  margin: 8px 5px 0;
 }
 
 @media screen and (max-width: 650px) {

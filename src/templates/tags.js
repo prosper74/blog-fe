@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { ArrowBackIos } from "@material-ui/icons"
 import { Breadcrumbs, Typography } from "@material-ui/core"
+import Seo from "../components/seo"
 import Layout from "../components/common/Layout"
 import BlogCard from "../components/common/BlogCard"
 import * as style from "../styles/category.module.css"
@@ -13,36 +14,45 @@ export default function Tag({
     allStrapiPosts: { edges: posts },
   },
 }) {
+  const path = typeof window !== undefined && window.location.pathname
+
   return (
-    <Layout>
-      <div key={id} className={style.category}>
-        <div className={style.breadcrumb}>
-          <span>
-            <Link to="/blog">
-              <ArrowBackIos />
-            </Link>
-          </span>
-          <div className={style.breadcrumbInfo}>
-            <Breadcrumbs aria-label="breadcrumb">
-              <Link to="/">Home</Link>
-              <Link to="/blog">Blog</Link>
-              <Typography variant="p">{name}</Typography>
-            </Breadcrumbs>
+    <>
+      <Seo
+        NewTitle={name}
+        NewDescription={`Browse all blog posts in ${name}`}
+        pathName={path}
+      />
+      <Layout>
+        <div key={id} className={style.category}>
+          <div className={style.breadcrumb}>
+            <span>
+              <Link to="/blog">
+                <ArrowBackIos />
+              </Link>
+            </span>
+            <div className={style.breadcrumbInfo}>
+              <Breadcrumbs aria-label="breadcrumb">
+                <Link to="/">Home</Link>
+                <Link to="/blog">Blog</Link>
+                <Typography variant="p">{name}</Typography>
+              </Breadcrumbs>
+            </div>
           </div>
-        </div>
-        <GatsbyImage
-          image={getImage(thumbnail.localFile)}
-          alt={name}
-          className={style.featuredImage}
-        />
-        <div>
-          <div className={style.categoryDesc}>
-            <h1>{name}</h1>
+          <GatsbyImage
+            image={getImage(thumbnail.localFile)}
+            alt={name}
+            className={style.featuredImage}
+          />
+          <div>
+            <div className={style.categoryDesc}>
+              <h1>{name}</h1>
+            </div>
           </div>
+          <BlogCard blogData={posts} />
         </div>
-        <BlogCard blogData={posts} />
-      </div>
-    </Layout>
+      </Layout>
+    </>
   )
 }
 

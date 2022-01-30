@@ -21,6 +21,7 @@ exports.createPages = async ({ graphql, actions }) => {
               name
             }
             thumbnail {
+              url
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -37,6 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
             name
             description
             thumbnail {
+              url
               localFile {
                 childImageSharp {
                   gatsbyImageData
@@ -50,8 +52,9 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             strapiId
-            name            
+            name
             thumbnail {
+              url
               localFile {
                 childImageSharp {
                   gatsbyImageData

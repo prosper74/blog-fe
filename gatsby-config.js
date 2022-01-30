@@ -10,6 +10,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -79,11 +80,27 @@ module.exports = {
     },
   ],
   siteMetadata: {
-    title: "Brand",
-    tagline: "The brand tagline",
-    aboutTitle: "About Brand",
-    aboutSubtitle: "Subtitle or slogan goes here dynamically",
+    title: "Prosper Blog",
+    description:
+      "I started learning how to code in January 2021. Before then I used wordpress to design website, but I wnated more so I developed a strong love for Javascript...",
+    tagline: "Welcome to my blog",
+    aboutTitle: "About Prosper Blog",
+    aboutSubtitle: "Welcome to my tech world",
     aboutDescription:
-      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero reprehenderit nostrum     tempora? Quia, voluptas. Lorem ipsum dolor, sit amet consectetur   adipisicing elit. Libero reprehenderit nostrum omnis odit beatae mollitia sint pariatur eum fugit reiciendis vitae harum, aut, expedita   adipisci, odio dolor tempora? Quia, voluptas.Lorem ipsum dolor, sit  amet consectetur adipisicing elit. Libero reprehenderit nostrum omnis   odit beatae mollitia sint pariatur eum fugit reiciendis vitae harum, aut, expedita adipisci, odio dolor tempora? Quia, voluptas.Lorem ipsum  dolor, sit amet consectetur adipisicing elit. Libero reprehenderit nostrum omnis odit beatae mollitia sint pariatur eum fugit reiciendis   vitae harum, aut, expedita adipisci, odio dolor tempora? Quia, voluptas.Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "I started learning how to code in January 2021. Before then I used wordpress to design website, but I wnated more so I developed a strong love for Javascript...",
+    siteUrl: "https://prosper-blog.netlify.app/",
+    image: "https://res.cloudinary.com/dccqoevkp/image/upload/v1643512890/favicon_tx2lap.png",
+    author: "Prosper Atu",
+    twitter: "@prosperjohnson",
+    fbAppID: "atu.prosper",
+    keywords: [
+      "developer",
+      "programmer",
+      "coding",
+      "code",
+      "websites",
+      "web developer",
+      "Mentoring",
+    ],
   },
 }

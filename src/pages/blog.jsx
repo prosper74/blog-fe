@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Seo from "../components/seo"
 import BlogPosts from "../components/blog/BlogPosts"
 import Layout from "../components/common/Layout"
 
@@ -8,10 +9,18 @@ export default function BlogPage({
     allStrapiPosts: { edges: posts },
   },
 }) {
+  const path = typeof window !== undefined && window.location.pathname
   return (
-    <Layout>
-      <BlogPosts posts={posts} />
-    </Layout>
+    <>
+      <Seo
+        NewTitle="Prosper Blog"
+        NewDescription="Browse all my blog posts"
+        pathName={path}
+      />
+      <Layout>
+        <BlogPosts posts={posts} />
+      </Layout>
+    </>
   )
 }
 

@@ -15,7 +15,7 @@ export const pageVariants = {
   },
   exit: {
     x: "-100vw",
-    transition: { ease: "easeInOut", duration: 5 },
+    transition: { ease: "easeInOut" },
   },
 }
 
@@ -38,10 +38,6 @@ export const bannerVariants = {
       duration: 0.5,
     },
   },
-  exit: {
-    x: "-100vw",
-  },
-  transition: { ease: "easeInOut" },
 }
 
 export const metaVariants = {

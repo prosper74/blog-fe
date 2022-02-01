@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
@@ -15,7 +15,10 @@ export default function Category({
     allStrapiPosts: { edges: posts },
   },
 }) {
-  const path = typeof window !== undefined && window.location.pathname
+  let path
+  useEffect(() => {
+    path = window !== undefined ? window.location.pathname : ""
+  })
 
   return (
     <>

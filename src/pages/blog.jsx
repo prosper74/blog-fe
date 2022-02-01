@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useEffect} from "react"
 import { graphql } from "gatsby"
 import Seo from "../components/seo"
 import BlogPosts from "../components/blog/BlogPosts"
@@ -9,7 +9,11 @@ export default function BlogPage({
     allStrapiPosts: { edges: posts },
   },
 }) {
-  const path = typeof window !== undefined && window.location.pathname
+  let path
+  useEffect(() => {
+    path = window !== undefined ? window.location.pathname : ""
+  })
+
   return (
     <>
       <Seo

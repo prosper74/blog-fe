@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import MarkdownView from "react-showdown"
@@ -36,7 +36,10 @@ import * as style from "../styles/singlepost.module.css"
 export default function SinglePost({
   pageContext: { title, body, id, thumbnail, tags, category, createdAt },
 }) {
-  const path = typeof window !== undefined && window.location.pathname
+  let path
+  useEffect(() => {
+    path = window !== undefined ? window.location.pathname : ""
+  })
 
   return (
     <>

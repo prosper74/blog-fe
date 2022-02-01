@@ -82,14 +82,15 @@ module.exports = {
   siteMetadata: {
     title: "Prosper Blog",
     description:
-      "I started learning how to code in January 2021. Before then I used wordpress to design website, but I wnated more so I developed a strong love for Javascript...",
+      "Welcome to my Tech Journey. I write in detail all my experience in the tech world, the good, the bad, and worst phases...",
     tagline: "Welcome to my blog",
     aboutTitle: "About Prosper Blog",
     aboutSubtitle: "Welcome to my tech world",
     aboutDescription:
-      "I started learning how to code in January 2021. Before then I used wordpress to design website, but I wnated more so I developed a strong love for Javascript...",
+      "Welcome to my Tech Journey. I write in detail all my experience in the tech world, the good, the bad, and worst phases...",
     siteUrl: "https://prosper-blog.netlify.app/",
-    image: "https://res.cloudinary.com/dccqoevkp/image/upload/v1643512890/favicon_tx2lap.png",
+    image:
+      "https://res.cloudinary.com/dccqoevkp/image/upload/v1643512890/favicon_tx2lap.png",
     author: "Prosper Atu",
     twitter: "@prosperjohnson",
     fbAppID: "atu.prosper",

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Seo from "../components/seo"
 import Layout from "../components/common/Layout"
 import Banner from "../components/home/Banner"
@@ -8,7 +8,11 @@ import Contact from "../components/home/Contact"
 import "../styles/global.css"
 
 export default function Home() {
-  const path = typeof window !== undefined && window.location.pathname
+  let path
+  useEffect(() => {
+    path = window !== undefined ? window.location.pathname : ""
+  })
+
   return (
     <div className="mainPage">
       <Seo NewTitle="Prosper Blog" pathName={path} />

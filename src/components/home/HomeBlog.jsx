@@ -5,6 +5,18 @@ import { motion } from "framer-motion"
 import BlogCard from "../common/BlogCard"
 import * as style from "../../styles/homeblog.module.css"
 
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    textShadow: "0px 0px 8px rgb(255,255,255)",
+    boxShadow: "0 5px 8px rgba(0, 0, 0, 0.2)",
+    transition: {
+      duration: 0.3,
+      yoyo: Infinity,
+    },
+  },
+}
+
 function HomeBlog() {
   // Graphql query to fetch the blog posts from the .md files
   const data = useStaticQuery(graphql`
@@ -39,12 +51,14 @@ function HomeBlog() {
         today... smiles
       </p>
       <BlogCard blogData={blogData} />
-      <motion.div whileHover={{ scale: 1.1 }}>
-        <Link to="/blog" className={style.viewMoreButton}>
-          View more
-          <UilExternalLinkAlt size="18" className={style.viewMoreIcon} />
-        </Link>
-      </motion.div>
+      <div className={style.viewMore}>
+        <motion.button variants={buttonVariants} whileHover="hover">
+          <Link to="/blog" className={style.viewMoreButton}>
+            View more
+            <UilExternalLinkAlt size="18" className={style.viewMoreIcon} />
+          </Link>
+        </motion.button>
+      </div>
     </div>
   )
 }

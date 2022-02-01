@@ -47,11 +47,6 @@
   border-radius: 8px;
 }
 
-.heroText button:hover {
-  background-color: #555;
-  color: white;
-}
-
 @media screen and (max-width: 650px) {
   .heroText h1 {
     font-size: 1.8rem;

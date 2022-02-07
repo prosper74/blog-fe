@@ -4,12 +4,14 @@ import Seo from "../components/seo"
 import BlogPosts from "../components/blog/BlogPosts"
 import Layout from "../components/common/Layout"
 
+let path
+
 export default function BlogPage({
   data: {
     allStrapiPosts: { edges: posts },
   },
 }) {
-  let path
+  
   useEffect(() => {
     path = window !== undefined ? window.location.pathname : ""
   })

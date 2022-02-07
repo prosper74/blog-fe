@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1980" height="495" viewBox="0 0 1980 495">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-myLogo2);
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-3, .cls-4, .cls-5 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        font-size: 406px;
+      }
+
+      .cls-3, .cls-6 {
+        font-family: Montserrat-ExtraBold, Montserrat;
+        font-weight: 800;
+      }
+
+      .cls-6 {
+        fill: #0e0039;
+        font-size: 221px;
+      }
+
+      .cls-7, .cls-8 {
+        stroke: none;
+      }
+
+      .cls-8 {
+        fill: #2a00ff;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="0.708" y1="0.024" x2="0.22" y2="0.894" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#9e7dff"/>
+      <stop offset="1" stop-color="#63f"/>
+    </linearGradient>
+    <clipPath id="clip-myLogo2">
+      <rect width="1980" height="495"/>
+    </clipPath>
+  </defs>
+  <g id="myLogo2" class="cls-1">
+    <g id="Group_1" data-name="Group 1">
+      <ellipse id="Ellipse_1" data-name="Ellipse 1" class="cls-2" cx="249.5" cy="247.5" rx="249.5" ry="247.5" transform="translate(15)"/>
+      <text id="P" class="cls-3" transform="translate(0 387)"><tspan x="0" y="0">P</tspan></text>
+      <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-4" cx="23" cy="23" r="23" transform="translate(171 326)"/>
+      <circle id="Ellipse_3" data-name="Ellipse 3" class="cls-4" cx="23" cy="23" r="23" transform="translate(229 326)"/>
+      <circle id="Ellipse_4" data-name="Ellipse 4" class="cls-4" cx="23" cy="23" r="23" transform="translate(287 326)"/>
+      <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-4" width="44" height="135" rx="15" transform="translate(410.037 178.797) rotate(34)"/>
+      <g id="Polygon_1" data-name="Polygon 1" class="cls-5" transform="translate(357.021 340.932) rotate(-149)">
+        <path class="cls-7" d="M 44.12286758422852 37.5 L 0.877131462097168 37.5 L 22.5 0.9813775420188904 L 44.12286758422852 37.5 Z"/>
+        <path class="cls-8" d="M 22.5 1.962745666503906 L 1.754257202148438 37 L 43.24574279785156 37 L 22.5 1.962745666503906 M 22.5 0 L 45 38 L 0 38 L 22.5 0 Z"/>
+      </g>
+    </g>
+    <text id="ProsperBlog" class="cls-6" transform="translate(519 327)"><tspan x="0" y="0">ProsperBlog</tspan></text>
+  </g>
+</svg>

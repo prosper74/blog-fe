@@ -33,10 +33,12 @@ import { timeSince } from "../components/dateFunction"
 import Layout from "../components/common/Layout"
 import * as style from "../styles/singlepost.module.css"
 
+let path
+
 export default function SinglePost({
   pageContext: { title, body, id, thumbnail, tags, category, createdAt },
 }) {
-  let path
+  
   useEffect(() => {
     path = window !== undefined ? window.location.pathname : ""
   })

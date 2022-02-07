@@ -7,8 +7,10 @@ import HomeBlog from "../components/home/HomeBlog"
 import Contact from "../components/home/Contact"
 import "../styles/global.css"
 
+let path
+
 export default function Home() {
-  let path
+  
   useEffect(() => {
     path = window !== undefined ? window.location.pathname : ""
   })

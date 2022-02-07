@@ -25,7 +25,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
 }
 
 .mainContent {
@@ -37,27 +37,32 @@
 }
 
 .chipElements {
-  margin: 0 .1rem .1rem 0;
+  margin: 0 0.1rem 0.1rem 0;
 }
 
-.post_inner p{
-  margin: .9rem 0;
+.post_inner p {
+  margin: 0.9rem 0;
   font-size: 1.2rem;
 }
 
-.post_inner ul{
+.post_inner img {
+  margin: 3rem 0;
+  border-radius: 10px;
+}
+
+.post_inner ul {
   font-size: 1.2rem;
 }
 
-.post_inner ol{
+.post_inner ol {
   font-size: 1.2rem;
 }
 
-.post_inner li{
+.post_inner li {
   margin: 1px 0 0 35px;
 }
 
-.post_inner pre{
+.post_inner pre {
   margin: 2rem 0;
   padding: 2rem;
   background-color: #110046;
@@ -66,8 +71,8 @@
   white-space: pre-wrap;
 }
 
-.post_inner a{  
-  color: #6633FF;
+.post_inner a {
+  color: #6633ff;
 }
 
 .shareSection {
@@ -80,12 +85,12 @@
 }
 
 @media screen and (max-width: 650px) {
-  .singlePost {    
+  .singlePost {
     padding: 0 1rem;
   }
 
-  .post_inner pre{
-    padding: 2rem .5rem;
+  .post_inner pre {
+    padding: 2rem 0.5rem;
   }
 
   .featuredImage {

@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React, { useRef } from "react"
 import "../../styles/global.css"
-import Logo from "../../images/myLogo.svg"
+import Logo from "../../images/myLogo2.svg"
 
 function Navbar() {
   const menuIcon = useRef(null)

@@ -9,13 +9,14 @@ import Seo from "../components/seo"
 import BlogCard from "../components/common/BlogCard"
 import * as style from "../styles/category.module.css"
 
+let path
+
 export default function Category({
   pageContext: { name, id, description, thumbnail },
   data: {
     allStrapiPosts: { edges: posts },
   },
 }) {
-  let path
   useEffect(() => {
     path = window !== undefined ? window.location.pathname : ""
   })

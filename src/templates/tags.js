@@ -8,13 +8,14 @@ import Layout from "../components/common/Layout"
 import BlogCard from "../components/common/BlogCard"
 import * as style from "../styles/category.module.css"
 
+let path
+
 export default function Tag({
   pageContext: { name, id, thumbnail },
   data: {
     allStrapiPosts: { edges: posts },
   },
 }) {
-  let path
   useEffect(() => {
     path = window !== undefined ? window.location.pathname : ""
   })

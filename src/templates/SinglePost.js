@@ -25,11 +25,10 @@ import {
 import { ArrowBackIos, FavoriteBorder, Favorite } from "@material-ui/icons"
 import {
   Breadcrumbs,
-  // IconButton,
+  CircularProgress,
   Tooltip,
   Typography,
   Chip,
-  // Badge,
   Grid,
 } from "@material-ui/core"
 import Layout from "../components/common/Layout"
@@ -38,35 +37,26 @@ import * as style from "../styles/singlepost.module.css"
 let path
 
 export default function SinglePost({
-  pageContext: { title, body, id, thumbnail, tags, category, createdAt, like },
+  pageContext: { title, body, id, thumbnail, tags, category, createdAt },
 }) {
+  const [like, setLike] = useState(null)
   const [isLike, setIsLike] = useState(false)
-  // const [postLikes, setPostLikes] = useState([])
-  let likedPosts
-
-  // console.log(postLikes)
-
-  const handleLike = async () => {
-    if (likedPosts.includes(id)) {
-      setIsLike(true)
-    } else {
-      likedPosts.push(id)
-      localStorage.setItem("userLike", JSON.stringify(likedPosts))
-      setIsLike(true)
-      let newLike = like + 1
-
-      try {
-        await axios.patch(process.env.GATSBY_STRAPI + "/posts/" + id, {
-          like: newLike,
-        })
-      } catch (err) {
-        console.log(err)
-      }
-    }
-  }
+  const [loading, setLoading] = useState(false)
+  let likedPosts = []
 
   useEffect(() => {
     path = window !== undefined ? window.location.pathname : ""
+
+    axios
+      .get(`http://localhost:1337/posts/${id}`)
+      .then(response => {
+        console.log(response.data.like)
+        setLike(response.data.like)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+
     likedPosts =
       window !== undefined
         ? JSON.parse(window.localStorage.getItem("userLike") || "[]")
@@ -77,7 +67,32 @@ export default function SinglePost({
     } else {
       setIsLike(false)
     }
-  }, [isLike, likedPosts, id])
+  }, [isLike, likedPosts, id, like])
+
+  const handleLike = async () => {
+    if (likedPosts !== undefined && likedPosts.includes(id)) {
+      setIsLike(true)
+    } else {
+      setLoading(true)
+      likedPosts.push(id)
+      localStorage.setItem("userLike", JSON.stringify(likedPosts))
+      setIsLike(true)
+      let newLike = like === undefined ? 1 : like + 1
+
+      axios
+        .put(`http://localhost:1337/posts/${id}`, {
+          like: newLike,
+        })
+        .then(response => {
+          setLoading(false)
+          setLike(response.data.like)
+        })
+        .catch(error => {
+          setLoading(false)
+          console.error(error)
+        })
+    }
+  }
 
   return (
     <>
@@ -160,25 +175,31 @@ export default function SinglePost({
                 container
                 xs={4}
                 justifyContent="flex-end"
+                alignItems="center"
                 className={style.likeContainer}
               >
-                <Tooltip title="like" onClick={handleLike}>
-                  {isLike ? (
-                    <Favorite color="error" fontSize="large" />
-                  ) : (
-                    <FavoriteBorder fontSize="large" />
-                  )}
-                </Tooltip>
-                {like || isLike ? (
+                {loading ? (
+                  <CircularProgress size={28} />
+                ) : (
+                  <Tooltip title="like" onClick={handleLike}>
+                    {isLike ? (
+                      <Favorite color="error" fontSize="large" />
+                    ) : (
+                      <FavoriteBorder fontSize="large" />
+                    )}
+                  </Tooltip>
+                )}
+
+                {like && (
                   <motion.div
                     variants={metaVariants}
                     initial="likeHidden"
                     animate="visible"
                     className={style.badge}
                   >
-                    {!isLike ? like : like + 1}
+                    {like}
                   </motion.div>
-                ) : null}
+                )}
               </Grid>
             </Grid>
             {/* End of meta data */}

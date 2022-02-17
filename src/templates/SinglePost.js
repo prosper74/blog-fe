@@ -48,9 +48,8 @@ export default function SinglePost({
     path = window !== undefined ? window.location.pathname : ""
 
     axios
-      .get(`http://localhost:1337/posts/${id}`)
+      .get(`${process.env.GATSBY_STRAPI}/posts/${id}`)
       .then(response => {
-        console.log(response.data.like)
         setLike(response.data.like)
       })
       .catch(error => {
@@ -80,7 +79,7 @@ export default function SinglePost({
       let newLike = like === undefined ? 1 : like + 1
 
       axios
-        .put(`http://localhost:1337/posts/${id}`, {
+        .put(`${process.env.GATSBY_STRAPI}/posts/${id}`, {
           like: newLike,
         })
         .then(response => {

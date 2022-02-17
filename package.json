@@ -19,6 +19,7 @@
     "@material-ui/icons": "^4.11.2",
     "axios": "^0.26.0",
     "browser-sync": "^2.27.7",
+    "dotenv": "^16.0.0",
     "framer-motion": "^6.2.1",
     "gatsby": "^3.11.1",
     "gatsby-plugin-image": "^1.12.0",

@@ -43,6 +43,7 @@ export const bannerVariants = {
 export const metaVariants = {
   catHidden: { x: -400 },
   dateHidden: { x: 400 },
+  likeHidden: { x: 50 },
   visible: {
     x: 0,
     transition: { type: "spring", delay: 0.5, duration: 0.5 },

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 import { graphql } from "gatsby"
 import Seo from "../components/seo"
 import BlogPosts from "../components/blog/BlogPosts"
@@ -11,7 +11,6 @@ export default function BlogPage({
     allStrapiPosts: { edges: posts },
   },
 }) {
-  
   useEffect(() => {
     path = window !== undefined ? window.location.pathname : ""
   })
@@ -38,7 +37,7 @@ export const query = graphql`
           strapiId
           title
           excerpt
-          createdAt
+          createdAt(fromNow: true)
           thumbnail {
             localFile {
               childImageSharp {

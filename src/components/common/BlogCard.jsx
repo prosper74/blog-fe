@@ -3,7 +3,6 @@ import { UilExternalLinkAlt, UilCalender } from "@iconscout/react-unicons"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { motion } from "framer-motion"
-import { timeSince } from "../dateFunction"
 import * as style from "../../styles/blogcard.module.css"
 
 function BlogCard({ blogData }) {
@@ -50,7 +49,7 @@ function BlogCard({ blogData }) {
               <div className={style.readMore}>
                 <UilCalender size="15" className={style.viewMoreIcon} />
                 &nbsp;
-                {timeSince(new Date(node.createdAt))} ago
+                {node.createdAt}
               </div>
             </div>
           </Link>

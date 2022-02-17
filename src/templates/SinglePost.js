@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import axios from "axios"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import MarkdownView from "react-showdown"
@@ -31,7 +32,6 @@ import {
   // Badge,
   Grid,
 } from "@material-ui/core"
-// import { timeSince } from "../components/dateFunction"
 import Layout from "../components/common/Layout"
 import * as style from "../styles/singlepost.module.css"
 
@@ -41,21 +41,29 @@ export default function SinglePost({
   pageContext: { title, body, id, thumbnail, tags, category, createdAt, like },
 }) {
   const [isLike, setIsLike] = useState(false)
+  // const [postLikes, setPostLikes] = useState([])
   let likedPosts
 
-  const handleLike = () => {
+  // console.log(postLikes)
+
+  const handleLike = async () => {
     if (likedPosts.includes(id)) {
       setIsLike(true)
     } else {
       likedPosts.push(id)
       localStorage.setItem("userLike", JSON.stringify(likedPosts))
       setIsLike(true)
+      let newLike = like + 1
+
+      try {
+        await axios.patch(process.env.GATSBY_STRAPI + "/posts/" + id, {
+          like: newLike,
+        })
+      } catch (err) {
+        console.log(err)
+      }
     }
   }
-
-  // showList = showList.concat(
-  //   JSON.parse(localStorage.getItem("showList") || "[]")
-  // )
 
   useEffect(() => {
     path = window !== undefined ? window.location.pathname : ""
@@ -63,6 +71,7 @@ export default function SinglePost({
       window !== undefined
         ? JSON.parse(window.localStorage.getItem("userLike") || "[]")
         : ""
+
     if (likedPosts.includes(id)) {
       setIsLike(true)
     } else {
@@ -143,7 +152,6 @@ export default function SinglePost({
                   variants={metaVariants}
                   initial="dateHidden"
                   animate="visible"
-                  // className={style.metadataInfo}
                 >
                   {createdAt}
                 </motion.div>
@@ -164,7 +172,7 @@ export default function SinglePost({
                 {like || isLike ? (
                   <motion.div
                     variants={metaVariants}
-                    initial="dateHidden"
+                    initial="likeHidden"
                     animate="visible"
                     className={style.badge}
                   >

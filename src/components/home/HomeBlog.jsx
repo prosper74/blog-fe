@@ -27,7 +27,7 @@ function HomeBlog() {
             strapiId
             title
             excerpt
-            createdAt
+            createdAt(fromNow: true)
             thumbnail {
               localFile {
                 childImageSharp {

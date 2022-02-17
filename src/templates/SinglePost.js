@@ -95,7 +95,7 @@ export default function SinglePost({
 
   return (
     <>
-      {/* SEO component for the page  */}
+      {/* SEO component for the page */}
       <Seo
         isBlogPost={true}
         NewTitle={title}

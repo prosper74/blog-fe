@@ -41,7 +41,7 @@ export default function SinglePost({
   pageContext: { title, body, id, thumbnail, tags, category, createdAt, like },
 }) {
   const [isLike, setIsLike] = useState(false)
-  let likedPosts = JSON.parse(localStorage.getItem("userLike") || "[]")
+  let likedPosts
 
   const handleLike = () => {
     if (likedPosts.includes(id)) {
@@ -59,6 +59,10 @@ export default function SinglePost({
 
   useEffect(() => {
     path = window !== undefined ? window.location.pathname : ""
+    likedPosts =
+      window !== undefined
+        ? JSON.parse(window.localStorage.getItem("userLike") || "[]")
+        : ""
     if (likedPosts.includes(id)) {
       setIsLike(true)
     } else {

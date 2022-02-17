@@ -23,7 +23,9 @@ function Contact() {
               <UilCalling size="40" className={style.phoneIcon} />
               <div>
                 <h3 className={style.contactTitle}>Call or Whatsapp</h3>
-                <span className={style.contactDesc}>+234 803 428 5512</span>
+                <span className={style.contactDesc}>
+                  <a href="tel:+2348034285512">+234 803 428 5512</a>
+                </span>
               </div>
             </div>
 
@@ -31,7 +33,11 @@ function Contact() {
               <UilEnvelopeCheck size="40" className={style.phoneIcon} />
               <div>
                 <h3 className={style.contactTitle}>Email</h3>
-                <span className={style.contactDesc}>atu.prosper@gmail.com</span>
+                <span className={style.contactDesc}>
+                  <a href="mailto:atu.prosper@gmail.com">
+                    atu.prosper@gmail.com
+                  </a>
+                </span>
               </div>
             </div>
 
@@ -39,7 +45,15 @@ function Contact() {
               <UilGithubAlt size="40" className={style.phoneIcon} />
               <div>
                 <h3 className={style.contactTitle}>Github</h3>
-                <span className={style.contactDesc}>github.com/prosper74</span>
+                <span className={style.contactDesc}>
+                  <a
+                    href="https://github.com/prosper74"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    prosper74
+                  </a>
+                </span>
               </div>
             </div>
           </div>

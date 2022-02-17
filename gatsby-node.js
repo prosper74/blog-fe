@@ -13,7 +13,8 @@ exports.createPages = async ({ graphql, actions }) => {
             strapiId
             title
             body
-            createdAt
+            createdAt(fromNow: true)
+            like
             category {
               name
             }
@@ -87,6 +88,7 @@ exports.createPages = async ({ graphql, actions }) => {
         tags: post.node.tags,
         category: post.node.category.name,
         createdAt: post.node.createdAt,
+        like: post.node.like,
       },
     })
   })

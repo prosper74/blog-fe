@@ -50,7 +50,7 @@ function Footer() {
               </a>
             </div>
             <div className={style.socials}>
-              <b className={style.socialsB}>Check me out</b>
+              <b>Check me out</b>
               <a
                 href="https://github.com/prosper74"
                 target="_blank"

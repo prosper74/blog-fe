@@ -62,7 +62,10 @@ export default function Tag({
 
 export const query = graphql`
   query GetTagPosts($id: String!) {
-    allStrapiPosts(filter: { tags: { elemMatch: { id: { eq: $id } } } }) {
+    allStrapiPosts(
+      filter: { tags: { elemMatch: { id: { eq: $id } } } }
+      sort: { fields: createdAt, order: DESC }
+    ) {
       edges {
         node {
           strapiId

@@ -79,7 +79,10 @@ export default function Category({
 
 export const query = graphql`
   query GetCategoryPosts($id: String!) {
-    allStrapiPosts(filter: { category: { id: { eq: $id } } }) {
+    allStrapiPosts(
+      filter: { category: { id: { eq: $id } } }
+      sort: { fields: createdAt, order: DESC }
+    ) {
       edges {
         node {
           strapiId

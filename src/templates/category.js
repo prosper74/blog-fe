@@ -1,15 +1,15 @@
-import React, { useEffect } from "react"
-import { Link, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { motion } from "framer-motion"
-import { ArrowBackIos } from "@material-ui/icons"
-import { Breadcrumbs, Typography } from "@material-ui/core"
-import Layout from "../components/common/Layout"
-import Seo from "../components/seo"
-import BlogCard from "../components/common/BlogCard"
-import * as style from "../styles/category.module.css"
+import React, { useEffect } from "react";
+import { Link, graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
+import { ArrowBackIos } from "@material-ui/icons";
+import { Breadcrumbs, Typography } from "@material-ui/core";
+import Layout from "../components/common/Layout";
+import Seo from "../components/seo";
+import BlogCard from "../components/common/BlogCard";
+import * as style from "../styles/category.module.css";
 
-let path
+let path;
 
 export default function Category({
   pageContext: { name, id, description, thumbnail },
@@ -18,8 +18,8 @@ export default function Category({
   },
 }) {
   useEffect(() => {
-    path = window !== undefined ? window.location.pathname : ""
-  })
+    path = window !== undefined ? window.location.pathname : "";
+  });
 
   return (
     <>
@@ -74,7 +74,7 @@ export default function Category({
         </div>
       </Layout>
     </>
-  )
+  );
 }
 
 export const query = graphql`
@@ -85,7 +85,7 @@ export const query = graphql`
           strapiId
           title
           excerpt
-          createdAt
+          createdAt(fromNow: true)
           thumbnail {
             localFile {
               childImageSharp {
@@ -97,4 +97,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

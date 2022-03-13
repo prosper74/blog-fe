@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react"
-import axios from "axios"
-import { Link } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import MarkdownView from "react-showdown"
-import { motion } from "framer-motion"
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import MarkdownView from "react-showdown";
+import { motion } from "framer-motion";
 import {
   containerVariants,
   bannerVariants,
   metaVariants,
   contentVariants,
   socialButtonVariants,
-} from "../components/animations"
-import Seo from "../components/seo"
+} from "../components/animations";
+import Seo from "../components/seo";
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -21,8 +21,8 @@ import {
   WhatsappIcon,
   LinkedinShareButton,
   LinkedinIcon,
-} from "react-share"
-import { ArrowBackIos, FavoriteBorder, Favorite } from "@material-ui/icons"
+} from "react-share";
+import { ArrowBackIos, FavoriteBorder, Favorite } from "@material-ui/icons";
 import {
   Breadcrumbs,
   CircularProgress,
@@ -30,68 +30,70 @@ import {
   Typography,
   Chip,
   Grid,
-} from "@material-ui/core"
-import Layout from "../components/common/Layout"
-import * as style from "../styles/singlepost.module.css"
+} from "@material-ui/core";
+import Layout from "../components/common/Layout";
+import * as style from "../styles/singlepost.module.css";
 
-let path
+let path;
 
 export default function SinglePost({
   pageContext: { title, body, id, thumbnail, tags, category, createdAt },
 }) {
-  const [like, setLike] = useState(null)
-  const [isLike, setIsLike] = useState(false)
-  const [loading, setLoading] = useState(false)
-  let likedPosts = []
+  const [like, setLike] = useState(null);
+  const [isLike, setIsLike] = useState(false);
+  const [loading, setLoading] = useState(false);
+  let likedPosts = [];
 
   useEffect(() => {
-    path = window !== undefined ? window.location.pathname : ""
+    path = window !== undefined ? window.location.pathname : "";
 
     axios
       .get(`${process.env.GATSBY_STRAPI}/posts/${id}`)
       .then(response => {
-        setLike(response.data.like)
+        setLike(response.data.like);
       })
       .catch(error => {
-        console.error(error)
-      })
+        console.error(error);
+      });
 
     likedPosts =
       window !== undefined
         ? JSON.parse(window.localStorage.getItem("userLike") || "[]")
-        : ""
+        : "";
 
     if (likedPosts.includes(id)) {
-      setIsLike(true)
+      setIsLike(true);
     } else {
-      setIsLike(false)
+      setIsLike(false);
     }
-  }, [isLike, likedPosts, id, like])
+  }, [isLike, likedPosts, id, like]);
 
   const handleLike = async () => {
     if (likedPosts !== undefined && likedPosts.includes(id)) {
-      setIsLike(true)
+      setIsLike(true);
     } else {
-      setLoading(true)
-      likedPosts.push(id)
-      localStorage.setItem("userLike", JSON.stringify(likedPosts))
-      setIsLike(true)
-      let newLike = like === undefined ? 1 : like + 1
+      setLoading(true);
+      likedPosts.push(id);
+      localStorage.setItem("userLike", JSON.stringify(likedPosts));
+      setIsLike(true);
+      console.log(like);
+      let newLike = like === undefined ? 1 : like + 1;
+      console.log(newLike);
 
       axios
         .put(`${process.env.GATSBY_STRAPI}/posts/${id}`, {
           like: newLike,
         })
         .then(response => {
-          setLoading(false)
-          setLike(response.data.like)
+          setLoading(false);
+          setLike(response.data.like);
         })
         .catch(error => {
-          setLoading(false)
-          console.error(error)
-        })
+          setLoading(false);
+          console.error(error);
+        });
     }
-  }
+  };
 
   return (
     <>
@@ -330,5 +332,5 @@ export default function SinglePost({
       </Layout>
       {/* End of page */}
     </>
-  )
+  );
 }

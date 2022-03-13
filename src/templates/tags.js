@@ -1,14 +1,14 @@
-import React, { useEffect } from "react"
-import { Link, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { ArrowBackIos } from "@material-ui/icons"
-import { Breadcrumbs, Typography } from "@material-ui/core"
-import Seo from "../components/seo"
-import Layout from "../components/common/Layout"
-import BlogCard from "../components/common/BlogCard"
-import * as style from "../styles/category.module.css"
+import React, { useEffect } from "react";
+import { Link, graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { ArrowBackIos } from "@material-ui/icons";
+import { Breadcrumbs, Typography } from "@material-ui/core";
+import Seo from "../components/seo";
+import Layout from "../components/common/Layout";
+import BlogCard from "../components/common/BlogCard";
+import * as style from "../styles/category.module.css";
 
-let path
+let path;
 
 export default function Tag({
   pageContext: { name, id, thumbnail },
@@ -17,8 +17,8 @@ export default function Tag({
   },
 }) {
   useEffect(() => {
-    path = window !== undefined ? window.location.pathname : ""
-  })
+    path = window !== undefined ? window.location.pathname : "";
+  });
 
   return (
     <>
@@ -57,7 +57,7 @@ export default function Tag({
         </div>
       </Layout>
     </>
-  )
+  );
 }
 
 export const query = graphql`
@@ -68,7 +68,7 @@ export const query = graphql`
           strapiId
           title
           excerpt
-          createdAt
+          createdAt(fromNow: true)
           thumbnail {
             localFile {
               childImageSharp {
@@ -80,4 +80,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

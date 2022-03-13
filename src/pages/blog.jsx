@@ -1,10 +1,10 @@
-import React, { useEffect } from "react"
-import { graphql } from "gatsby"
-import Seo from "../components/seo"
-import BlogPosts from "../components/blog/BlogPosts"
-import Layout from "../components/common/Layout"
+import React, { useEffect } from "react";
+import { graphql } from "gatsby";
+import Seo from "../components/seo";
+import BlogPosts from "../components/blog/BlogPosts";
+import Layout from "../components/common/Layout";
 
-let path
+let path;
 
 export default function BlogPage({
   data: {
@@ -12,8 +12,8 @@ export default function BlogPage({
   },
 }) {
   useEffect(() => {
-    path = window !== undefined ? window.location.pathname : ""
-  })
+    path = window !== undefined ? window.location.pathname : "";
+  });
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function BlogPage({
         <BlogPosts posts={posts} />
       </Layout>
     </>
-  )
+  );
 }
 
 export const query = graphql`
@@ -49,4 +49,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

@@ -1,4 +1,4 @@
-require("dotenv").config()
+require("dotenv").config();
 /**
  * Configure your Gatsby site with this file.
  *
@@ -105,4 +105,4 @@ module.exports = {
       "Mentoring",
     ],
   },
-}
+};

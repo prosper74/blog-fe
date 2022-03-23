@@ -62,6 +62,14 @@ button {
   text-decoration: none;
 }
 
+h3 {
+  color: #2b2b2b;
+}
+
+p {
+  color: #747474;
+}
+
 img,
 video {
   display: block;

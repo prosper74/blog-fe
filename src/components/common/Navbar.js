@@ -48,11 +48,6 @@ function Navbar() {
           <div className="menu" ref={setMenu}>
             <ul className="menu-inner" ref={setMenuLink}>
               <li className="menu-item">
-                <Link to="/blog" className="menu-link">
-                  All Stories
-                </Link>
-              </li>
-              <li className="menu-item">
                 <Link to="/blog/journey" className="menu-link">
                   Journey
                 </Link>

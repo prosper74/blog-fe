@@ -7,7 +7,7 @@
 }
 .footer {
   z-index: 1;
-  --footer-background:#6633FF;
+  --footer-background: #6633ff;
   display: grid;
   position: relative;
   grid-area: footer;
@@ -27,8 +27,11 @@
   left: var(--position, 50%);
   background: var(--footer-background);
   border-radius: 100%;
-  -webkit-animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
-          animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+  -webkit-animation: bubble-size var(--time, 4s) ease-in infinite
+      var(--delay, 0s),
+    bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+  animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s),
+    bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
   transform: translate(-50%, 100%);
 }
 .content {
@@ -39,8 +42,9 @@
   padding: 2rem;
   background: var(--footer-background);
 }
-.content a, .content p {
-  color: #F5F7FA;
+.content a,
+.content p {
+  color: #f5f7fa;
   text-decoration: none;
 }
 .content b {
@@ -67,6 +71,12 @@
   align-items: center;
 }
 
+.myImage > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .content > div .image {
   align-self: center;
   width: 4rem;
@@ -77,7 +87,8 @@
 }
 
 @-webkit-keyframes bubble-size {
-  0%, 75% {
+  0%,
+  75% {
     width: var(--size, 4rem);
     height: var(--size, 4rem);
   }
@@ -88,7 +99,8 @@
 }
 
 @keyframes bubble-size {
-  0%, 75% {
+  0%,
+  75% {
     width: var(--size, 4rem);
     height: var(--size, 4rem);
   }

@@ -1,29 +1,53 @@
-import React, { useEffect } from "react"
-import Seo from "../components/seo"
-import Layout from "../components/common/Layout"
-import Banner from "../components/home/Banner"
-import Services from "../components/home/Services"
-import HomeBlog from "../components/home/HomeBlog"
-import Contact from "../components/home/Contact"
-import "../styles/global.css"
+import React, { useEffect } from "react";
+import { graphql } from "gatsby";
+import Seo from "../components/seo";
+import BlogPosts from "../components/blog/BlogPosts";
+import Layout from "../components/common/Layout";
 
-let path
+let path;
 
-export default function Home() {
-  
+export default function BlogPage({
+  data: {
+    allStrapiPosts: { edges: posts },
+  },
+}) {
   useEffect(() => {
-    path = window !== undefined ? window.location.pathname : ""
-  })
+    path = window !== undefined ? window.location.pathname : "";
+  });
 
   return (
-    <div className="mainPage">
-      <Seo NewTitle="Prosper Blog" pathName={path} />
+    <>
+      <Seo
+        NewTitle="Prosper Blog"
+        NewDescription="Browse all my blog posts"
+        pathName={path}
+      />
       <Layout>
-        <Banner />
-        <Services />
-        <HomeBlog />
-        <Contact />
+        <BlogPosts posts={posts} />
       </Layout>
-    </div>
-  )
+    </>
+  );
 }
+
+export const query = graphql`
+  {
+    allStrapiPosts(sort: { fields: createdAt, order: DESC }) {
+      edges {
+        node {
+          strapiId
+          title
+          excerpt
+          createdAt(fromNow: true)
+          thumbnail {
+            localFile {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+

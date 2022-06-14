@@ -1,10 +1,16 @@
-import { Link } from "gatsby"
-import React from "react"
-import * as style from "../../styles/footer.module.css"
-import { UilGithub, UilLinkedinAlt, UilTwitter } from "@iconscout/react-unicons"
+import { Link } from "gatsby";
+import React from "react";
+import * as style from "../../styles/footer.module.css";
+import {
+  UilGithub,
+  UilLinkedinAlt,
+  UilTwitter,
+  UilOutgoingCall,
+  UilEnvelopeCheck,
+} from "@iconscout/react-unicons";
 
 function Footer() {
-  const n = 128
+  const n = 128;
 
   return (
     <div className={style.main}>
@@ -28,16 +34,14 @@ function Footer() {
         <div className={style.content}>
           <div>
             <div>
-              <b>Menu</b>
-              <Link to="/#home">Home |</Link>
-              <Link to="https://prosperatu.netlify.app/">Portfolio |</Link>
-              <Link to="/blog">Blog</Link>
+              <b>
+                <Link to="https://prosperatu.netlify.app/">My Portfolio</Link>
+              </b>
             </div>
             <div>
-              <b>Built With</b>
-              <a href="https://reactjs.org/" target="_blank" rel="noreferrer">
-                React |
-              </a>
+              <p>
+                <b>Built With</b>
+              </p>
               <a
                 href="https://www.gatsbyjs.com/"
                 target="_blank"
@@ -50,7 +54,6 @@ function Footer() {
               </a>
             </div>
             <div className={style.socials}>
-              <b>Check me out</b>
               <a
                 href="https://github.com/prosper74"
                 target="_blank"
@@ -65,18 +68,38 @@ function Footer() {
               >
                 <UilLinkedinAlt size="18" />
               </a>
-              <Link to="#">
+              <a
+                href="https://twitter.com/prosperjohnson"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <UilTwitter size="18" />
-              </Link>
+              </a>
+              <a href="tel:+2348034285512" rel="noreferrer">
+                <UilOutgoingCall size="18" />
+              </a>
+              <a
+                href="mailto:atu.prosper@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <UilEnvelopeCheck size="18" />
+              </a>
             </div>
           </div>
-          <div>
-            <img
-              src="https://avatars.githubusercontent.com/u/67523206?v=4"
-              alt="Prosper Atu"
-              className={style.image}
-            />
-            <p>©2021 Not Really...Kidding</p>
+          <div className={style.myImage}>
+            <a
+              href="https://prosperatu.netlify.app/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="https://avatars.githubusercontent.com/u/67523206?v=4"
+                alt="Prosper Atu"
+                className={style.image}
+              />
+              <p>©2022 ProsperDev</p>
+            </a>
           </div>
         </div>
       </div>
@@ -103,7 +126,7 @@ function Footer() {
         </defs>
       </svg>
     </div>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

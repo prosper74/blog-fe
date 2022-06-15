@@ -35,7 +35,13 @@ function Footer() {
           <div>
             <div>
               <b>
-                <Link to="https://prosperatu.netlify.app/">My Portfolio</Link>
+                <a
+                  href="https://prosperatu.netlify.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  My Portfolio
+                </a>
               </b>
             </div>
             <div>

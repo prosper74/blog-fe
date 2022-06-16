@@ -50,6 +50,7 @@
 .post_inner p {
   margin: 0.9rem 0;
   font-size: 1.2rem;
+  word-wrap: break-word;
 }
 
 .post_inner img {
@@ -60,15 +61,18 @@
 .post_inner ul {
   font-size: 1.2rem;
   margin-bottom: 0.9rem;
+  word-wrap: break-word;
 }
 
 .post_inner ol {
   font-size: 1.2rem;
   margin-bottom: 0.9rem;
+  word-wrap: break-word;
 }
 
 .post_inner li {
   margin: 1px 0 0 35px;
+  word-wrap: break-word;
 }
 
 .post_inner pre {
@@ -78,10 +82,12 @@
   color: white;
   border-radius: 12px;
   white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .post_inner a {
   color: #6633ff;
+  word-wrap: break-word;
 }
 
 .shareSection {

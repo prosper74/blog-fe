@@ -38,7 +38,7 @@ function BlogCard({ blogData }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ type: "spring", delay: 1.3, duration: 0.7 }}
               >
-                {node.excerpt && node.excerpt.substring(0, 80)}
+                {node.excerpt && node.excerpt.substring(0, 100)}...
               </motion.p>
             </div>
             <div className={style.postFooter}>
